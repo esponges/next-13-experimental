@@ -10,6 +10,8 @@ export default function Home() {
   return (
     <>
       <ClientPage>
+        {/* this error is a known next13 bug https://github.com/vercel/next.js/issues/42292 */}
+        {/* @ts-expect-error Server Component */}
         <ServerPage />
       </ClientPage>
     </>
