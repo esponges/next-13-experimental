@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
+import { store } from '@/store';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,14 +18,15 @@ const fetchSomeData = async () => {
 
 export default async function ServerPage() {
   const data = await fetchSomeData();
+  const initialState = store.getState().test;
+  console.log('this server component has access to the redux store', store.getState());
 
   return (
     <>
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
+            This is the initial redux state on the server: {initialState.test}
           </p>
           <div>
             <a
