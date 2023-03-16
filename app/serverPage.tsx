@@ -17,7 +17,6 @@ const fetchSomeData = async () => {
 
 export default async function ServerPage() {
   const data = await fetchSomeData();
-  // this logs in the server
 
   return (
     <>

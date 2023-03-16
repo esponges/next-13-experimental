@@ -1,5 +1,6 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import SessionProvider from '@/components/session/sessionProvider';
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
 
 /* 
   This is the root component of your app but it doesn't
@@ -7,6 +8,9 @@ import type { AppProps } from 'next/app'
 */
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log('is this client or server?');
-  return <Component {...pageProps} />
+  return (
+    <SessionProvider>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
 }
