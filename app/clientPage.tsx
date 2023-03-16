@@ -1,5 +1,7 @@
 'use client';
 
+import Head from "./head";
+
 export default function ClientPage({
   children,
 }: {
@@ -8,8 +10,8 @@ export default function ClientPage({
   // this logs in the client
   console.log('rendering client page');
   return (
-    <>
+    <div id='with-font-container'>
       {children}
-    </>
+    </div>
   );
 }
