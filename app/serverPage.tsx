@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import { store } from '@/store';
+import { increment } from '@/store/counterSlice';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +20,7 @@ const fetchSomeData = async () => {
 export default async function ServerPage() {
   const data = await fetchSomeData();
   const initialState = store.getState().test;
+  const counter = store.getState().counter;
   console.log('this server component has access to the redux store', store.getState());
 
   return (
@@ -28,6 +30,9 @@ export default async function ServerPage() {
           <p>
             This is the initial redux state on the server: {initialState.test}
           </p>
+          {/* increment counter */}
+
+          <p>Current Count: {counter.value}</p>
           <div>
             <a
               href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
