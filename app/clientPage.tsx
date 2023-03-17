@@ -1,9 +1,9 @@
 'use client';
 
 import { useDispatch, useSelector } from 'react-redux';
-import Head from './head';
 import { AppDispatch, RootState } from '@/store';
 import { increment } from '@/store/counterSlice';
+import { useRouter } from 'next/navigation';
 
 export default function ClientPage({
   children,
@@ -12,13 +12,14 @@ export default function ClientPage({
 }) {
   const dispatch = useDispatch<AppDispatch>();
   const count = useSelector((state: RootState) => state.counter.value);
+  const router = useRouter();
 
   const handleIncrementCounter = () => {
     dispatch(increment());
+    router.refresh();
   };
 
   // this logs in the client
-  console.log('rendering client page');
   return (
     <div id='with-font-container'>
       {/* count display */}

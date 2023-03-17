@@ -21,7 +21,7 @@ export default async function ServerPage() {
   const data = await fetchSomeData();
   const initialState = store.getState().test;
   const counter = store.getState().counter;
-  console.log('this server component has access to the redux store', store.getState());
+  
 
   return (
     <>
