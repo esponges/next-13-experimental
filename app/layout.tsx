@@ -11,7 +11,7 @@ export default function RootLayout({
   const router = useRouter();
 
   return (
-    <html>
+    <html className='bg-blue'>
       <head />
       <body>
         <button onClick={() => router.push('/about')}>About</button>
